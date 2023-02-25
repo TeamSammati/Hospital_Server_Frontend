@@ -1,0 +1,40 @@
+.RegisterPage{
+    min-height: 430px;
+}
+.RegisterTitle{
+    text-align: center;
+    font-weight: bold;
+    color: green;
+}
+.RegisterContainer{
+    margin: auto;
+    max-width: 1325px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #f7f5f5;
+    border-radius: 4px;
+}
+.RegisterSection1, .RegisterSection2{
+    margin-bottom: 10px;
+    padding: 8px 24px;
+}
+.RegisterSection1{
+    padding-bottom: 10px;
+    min-height: 325px;
+}
+.RegisterSection2{
+    min-height: 125px;
+}
+h4{
+    color: #24262b;
+    font-weight: bold;
+    /* margin-top: -2px; */
+}
+.RegisterCol{
+    float: left;
+    width: 33.33%;
+    margin-top: 10px;
+}
+.RegisterRow{
+    margin-top: 15px;
+}

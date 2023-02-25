@@ -1,0 +1,46 @@
+.DashboardPage{
+    min-height: 430px;
+}
+
+.DashboardContent{
+    margin: 10px 15px;
+}
+.HealthDataStatistics, .ConsentsRequests{
+    background-color: #dbdedf4e;
+    margin: 12px 0;
+    padding: 16px 12px;
+}
+.btnPage2Go, .btnPage2Back{
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    color: #069;
+    text-decoration: underline;
+    cursor: pointer;
+    margin: 10px;
+}
+.ProfileName{
+    float: none;
+    color: green;
+    font-size: 22px;
+    font-weight: bold;
+}
+.ProfileContent{
+    margin-bottom: 10px;
+    height: 175px;
+    padding: 12px 24px;
+}
+.Prof-Col{
+    float: left;
+    height: 200px;
+}
+.ProfilePhoto{
+    width: 15%;
+}
+.ProfileDetais{
+    width: 65%;
+}
+.ProfileQR{
+    float: right;
+    width: 20%;
+}

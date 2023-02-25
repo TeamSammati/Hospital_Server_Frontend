@@ -1,0 +1,43 @@
+.ConsentRequestsPage {
+    min-height: 400px;
+}
+
+.ConsentRequestTitle {
+    text-align: center;
+    font-weight: bold;
+    color: green;
+}
+.ConsentRequestMessage{
+    text-align: center;
+    font-weight: bold;
+    color: brown;
+}
+
+.ConsentRequestContainer {
+    background-color: #dbdedf4e;
+    border-radius: 4px;
+    padding: 12px 24px;
+    margin: 16px;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+table{
+    margin: auto;
+}
+th{
+    background-color: #24262b;
+    color: #fff;
+}
+td{
+    background-color: #ededed;
+    color: black;
+    min-width: 125px;
+    text-align: center;
+    justify-content: center;
+}
