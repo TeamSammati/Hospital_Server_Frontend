@@ -1,0 +1,103 @@
+.LoginPage {
+    min-height: 400px;
+}
+
+.LoginContainer {
+    background-color: #ededed;
+    position: relative;
+    /* justify-content: center; */
+    margin: auto;
+    text-align: center;
+    margin-top: 100px;
+    max-width: 625px;
+    padding: 15px;
+    border-radius: 9px;
+}
+.LoginContainer::before {    
+    content: "";
+    background-image: url("../../Images/kauvery-hospitals-logo.webp");
+    /* background-image: radial-gradient(red 2%, yellow 10%, green); */
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.75;
+}
+
+.LoginTitle {
+    color: green;
+    font-weight: bold;
+    margin: 5px;
+    position: relative;
+}
+
+.LoginTitle:hover {
+    padding-left: 10px;
+    font-style: italic;
+    color: #24262b;
+}
+
+.LoginTitle::before {
+    content: '';
+    position: absolute;
+    left: auto;
+    background-color: #e91e63;
+    height: 2px;
+    box-sizing: border-box;
+    width: 100px;
+    margin-top: 25px;
+}
+
+.LoginForm {
+    margin: 35px 0px;
+    position: relative;
+}
+
+.InputText {
+    padding: 8px 24px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ededed;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.InputLabel1 {
+    margin-right: 40px;
+}
+
+.InputLabel {
+    margin-right: 25px;
+}
+
+.InputButton {
+    margin: 12px;
+    padding: 8px 20px;
+    background-color: #24262b;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.InputButton:hover {
+    background-color: #9f9d9d;
+}
+
+.btnRegister,
+.btnPage1Back {
+    background: none !important;
+    border: none;
+    padding: 0 !important;
+    color: #069;
+    text-decoration: underline;
+    cursor: pointer;
+    margin: 10px;
+    position: relative;
+}

@@ -1,0 +1,26 @@
+.NewConsentRequestPage{
+    min-height: 400px;
+}
+.NewConsentRequestContainer{
+    margin: 16px;
+    background-color: #dbdedf4e;
+    padding: 12px 24px;
+    border-radius: 4px;
+    min-height: 200px;
+}
+.NewConsentRequestTitle{
+    text-align: center;
+    font-weight: bold;
+    color: green;
+    margin-bottom: 75px;
+}
+.NewConsentRequestCol{
+    float: left;
+    width: 33.33%;
+    margin-top: 10px;
+    text-align: center;
+    justify-content: center;
+}
+.NewConsentRequestRow{
+    margin-top: 15px;
+}
