@@ -9,14 +9,14 @@ const LoginPage = ({ loginHandler }) => {
 
   const handleLogin = (event) => {
     event.preventDefault()
-    if(userName.length > 10 || password.length < 8 || password.length > 32){
-      alert("credentials are not in correct format! username: Max-10 characters, password: Min-8 Max-32 characters")
-      setUserName('')
-      setPassword('')
-      return
-    }
+    // if(userName.length > 10 || password.length < 8 || password.length > 32){
+    //   alert("credentials are not in correct format! username: Max-10 characters, password: Min-8 Max-32 characters")
+    //   setUserName('')
+    //   setPassword('')
+    //   return
+    // }
     const loginCredentials = {
-      userName, password
+      doctorId: userName, password: password
     }
 
     loginHandler(loginCredentials)

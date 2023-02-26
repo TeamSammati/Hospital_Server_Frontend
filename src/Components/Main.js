@@ -12,6 +12,7 @@ const Main = () => {
             const userObject = await loginService.login(loginCredentials)
             if(userObject){
                 setUser(userObject)
+                console.log(userObject)
                 window.localStorage.setItem('sessionUser', JSON.stringify(userObject))
             }
             else{
@@ -28,6 +29,7 @@ const Main = () => {
           if (user) {
             const requests = await ConsentStatusService.getStatusRequests(user)
             setConsentRequests(requests)
+            console.log("Requests: ",requests)
           }
         }
         fetchRequests()
@@ -35,6 +37,7 @@ const Main = () => {
 
     useEffect(() => {
         const sessionUser = window.localStorage.getItem('sessionUser')
+        
         if (sessionUser)
             setUser(JSON.parse(sessionUser))
         else

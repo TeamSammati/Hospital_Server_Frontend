@@ -27,7 +27,7 @@ const Dashboard = ({user, consentRequests}) => {
       {
         (page === 2) &&
         <div className='RequestsPage'>
-          <NewConsentRequest consentRequests={consentRequests} page={page} setPage={setPage}/>
+          <NewConsentRequest consentRequests={consentRequests} page={page} setPage={setPage} user={user}/>
           <button onClick={()=>{setPage(1)}} className='btnPage2Back'>Goto Dashboard &gt;&gt;</button>
         </div>
       }
