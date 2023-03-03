@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ConsentRequests from './ConsentRequests'
 import NewConsentRequest from './NewConsentRequest'
 import './Stylesheets/Dashboard.css'
-const Dashboard = ({user, consentRequests}) => {
-    const [page, setPage] = useState(1)
+const Dashboard = ({user, consentRequests, currPage, setCurrPage}) => {
+    //const [page, setPage] = useState(1)
   return (
     <div>
       {
-        (page === 1) && 
+        (currPage === 1) && 
         <div className='DashboardPage'>
           <div className='DashboardMain'>
             
@@ -15,27 +15,27 @@ const Dashboard = ({user, consentRequests}) => {
           <div className='DashboardContent'>
           <div className='HealthDataStatistics'>
           New Consent Request
-          <button onClick={()=>{setPage(2)}} className='btnPage2Go'>Goto Generate Request Page &gt;&gt;</button>
+          <button onClick={()=>{setCurrPage(2); window.localStorage.setItem('currPage', JSON.stringify(2)) }} className='btnPage2Go'>Goto Generate Request Page &gt;&gt;</button>
           </div>
           <div className='ConsentsRequests'>
           Consents & Requests
-          <button onClick={()=>{setPage(3)}} className='btnPage2Go'>Goto Requests &gt;&gt;</button>
+          <button onClick={()=>{setCurrPage(3); window.localStorage.setItem('currPage', JSON.stringify(3)) }} className='btnPage2Go'>Goto Requests &gt;&gt;</button>
           </div>
           </div>
         </div>
       }
       {
-        (page === 2) &&
+        (currPage === 2) &&
         <div className='RequestsPage'>
-          <NewConsentRequest consentRequests={consentRequests} page={page} setPage={setPage} user={user}/>
-          <button onClick={()=>{setPage(1)}} className='btnPage2Back'>Goto Dashboard &gt;&gt;</button>
+          <NewConsentRequest consentRequests={consentRequests} page={currPage} setPage={setCurrPage} user={user}/>
+          <button onClick={()=>{setCurrPage(1); window.localStorage.setItem('currPage', JSON.stringify(1)) }} className='btnPage2Back'>Goto Dashboard &gt;&gt;</button>
         </div>
       }
       {
-        (page === 3) &&
+        (currPage === 3) &&
         <div className='RequestsPage'>
-          <ConsentRequests consentRequests={consentRequests} page={page} setPage={setPage}/>
-          <button onClick={()=>{setPage(1)}} className='btnPage2Back'>Goto Dashboard &gt;&gt;</button>
+          <ConsentRequests consentRequests={consentRequests} page={currPage} setPage={setCurrPage}/>
+          <button onClick={()=>{setCurrPage(1); window.localStorage.setItem('currPage', JSON.stringify(1)) }} className='btnPage2Back'>Goto Dashboard &gt;&gt;</button>
         </div>
       }
     </div>

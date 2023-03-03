@@ -2,7 +2,7 @@ import React from 'react'
 import './Stylesheets/ConsentRequest.css'
 
 const ConsentRequest = ({ consentRequest, index }) => {
-    console.log("consentRequest : ",consentRequest)
+    //console.log("consentRequest : ",consentRequest)
     return (
         <tr>
             <td>{index + 1}</td>

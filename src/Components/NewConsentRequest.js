@@ -10,12 +10,14 @@ const NewConsentRequest = ({user, page, setPage}) => {
           if (response) {
             alert("Request Sent Successfully!", response)
             setPage(3)
+            window.localStorage.setItem('currPage', JSON.stringify(3)) 
           }
-        //   window.location.reload(true)
+          window.location.reload(true)
+
         }
         catch (exception) {
           alert("Request Unable to Send, Please try later...")
-        //   window.location.reload(true)
+         window.location.reload(true)
         }
       }
     const requestHandler = (event) => {
