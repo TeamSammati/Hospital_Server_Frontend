@@ -21,8 +21,8 @@ const ConsentRequests = ({ consentRequests }) => {
               <thead>
                 <tr>
                   <th scope="col">Sl. No.</th>
-                  <th scope="col">Consent Request Id.</th>
                   <th scope="col">Patient Id.</th>
+                  <th scope="col">Consent Request Id.</th>
                   <th scope="col">Status</th>
                 </tr>
               </thead>
