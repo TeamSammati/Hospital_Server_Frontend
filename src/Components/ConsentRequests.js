@@ -1,11 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Stylesheets/ConsentRequests.css'
 import ConsentRequest from './ConsentRequest'
-const ConsentRequests = ({ consentRequests }) => {
+import NewConsentRequest from './NewConsentRequest';
+const ConsentRequests = ({ consentRequests, user }) => {
+  const [newConsentRequest, setNewConsentRequest] = useState(false);
   return (
     <div className='ConsentRequestsPage'>
       <div className='ConsentRequestTitle'>
         Consent Requests at Sammati
+      </div>
+      <div className='HealthDataStatistics'>
+        New Consent Request
+        {
+          (!newConsentRequest) && <button onClick={() => { setNewConsentRequest(true) }} className="InputButtonLink">&nbsp;+&nbsp;</button>
+        }
+        {
+          (newConsentRequest) && <button onClick={() => { setNewConsentRequest(false) }} className="InputButtonLink">&nbsp;-&nbsp;</button>
+        }
+        {
+          (newConsentRequest) && <NewConsentRequest user={user} setNewConsentRequest={setNewConsentRequest} />
+        }
       </div>
       <div className='ConsentRequestContainer'>
         {
