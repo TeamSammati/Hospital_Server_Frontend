@@ -1,0 +1,7 @@
+.AboutPage{
+    min-height: 500px;
+    margin: auto;
+}
+.AboutContent, .AboutTitle{
+    text-align: center;
+}

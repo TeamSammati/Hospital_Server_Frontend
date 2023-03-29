@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './Stylesheets/NewConsentRequest.css'
 import ConsentRequestService from '../Services/ConsentRequestService'
-const NewConsentRequest = ({user, page, setPage}) => {
+const NewConsentRequest = ({user, setNewConsentRequest}) => {
     const [patient_id, setPatient_id] = useState('')
     const [purpose, setPurpose] = useState('')
     const newConsentRequestHandler = async (requestParams) => {
@@ -9,8 +9,7 @@ const NewConsentRequest = ({user, page, setPage}) => {
           const response = await ConsentRequestService.consentRequest(requestParams)
           if (response) {
             alert("Request Sent Successfully!", response)
-            setPage(3)
-            window.localStorage.setItem('currPage', JSON.stringify(3)) 
+            setNewConsentRequest(false);
           }
           window.location.reload(true)
 
