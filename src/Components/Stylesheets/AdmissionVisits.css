@@ -1,0 +1,29 @@
+.InputButtonLink {
+    background: none !important;
+    border: black;
+    border-style: inset;
+    border-width: 2px;
+    padding: 0 !important;
+    /*optional*/
+    font-family: arial, sans-serif;
+    /*input has OS specific font-family*/
+    color: green;
+    font-weight: bold;
+    cursor: pointer;
+}
+.AddVisitSection{
+    min-height: 35px;
+    margin: 10px 0px;
+}
+
+.AddVisitForm {
+    margin-top: 3px;
+    color: blue;
+}
+.AddButton{
+    margin-top: 17px;
+}
+.AddVisitDivision {
+    float: left;
+    margin-right: 3px;
+}

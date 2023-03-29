@@ -1,0 +1,80 @@
+.AdmissionPage {
+    min-height: 500px;
+    margin: auto;
+}
+
+.AdmissionPageTitle {
+    color: green;
+    font-size: 20px;
+    text-align: center;
+    font-weight:bold;
+}
+.MainContainer{
+    min-height: 500px;
+}
+.AddEpisodeSection{
+    min-height: 35px;
+    padding: 6px 15px;
+}
+.AdmissionPageContent{
+    margin: 20px;
+    padding: 12px 24px;
+    border: 2px;
+    border-radius: 4px;
+    border-color: black;
+    border-width: 1px;
+    border-style: double;
+}
+.EpisodeContainer {
+    background-color: #d7ecf6b9;
+    /* min-height: 300px; */
+    margin: 10px;
+    padding: 12px 24px;
+    border: 2px;
+    border-radius: 4px;
+    border-color: black;
+    border-width: 2px;
+    border-style: double;
+}
+.InputButtonLink{
+    background: none!important;
+    border: black;
+    border-style: inset;
+    border-width: 2px;
+    padding: 0!important;
+    /*optional*/
+    font-family: arial, sans-serif;
+    /*input has OS specific font-family*/
+    color: green;
+    font-weight: bold;
+    cursor: pointer;
+}
+.AddEpisodeSection{
+    margin: 10px 0px;
+}
+.AddEpisodeDivision{
+    float: left;
+    margin-right: 3px;
+}
+.AddEpisodeForm{
+    margin-top: 3px;
+    color: blue;
+}
+.AddButton{
+    margin-top: 17px;
+}
+.EpisodeRecord{
+    margin: 10px 0px;
+    float: none;
+    background-color: azure;
+    min-height: 38px;
+}
+.EpisodeItem{
+    float: left;
+    color: darkblue;
+    margin: 0px 15px;
+    margin-top: 10px;
+}
+.PatientDivision{
+    padding: 6px 15px;
+}

@@ -15,6 +15,10 @@ const Navbar = () => {
         <li className={window.location.pathname === "/" ? "active-li" : ""}>
           <Link to="/consentRequests" className={window.location.pathname === "/consentRequests" ? "active-link" : ""}>Consent Requests</Link>
         </li>
+        
+        <li className={window.location.pathname === "/" ? "active-li" : ""}>
+          <Link to="/admission" className={window.location.pathname === "/admission" ? "active-link" : ""}>Admissions</Link>
+        </li>
         <li className={window.location.pathname === "/" ? "active-li" : ""}>
           <Link to="/about" className={window.location.pathname === "/about" ? "active-link" : ""}>About Us</Link>
         </li>

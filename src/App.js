@@ -10,6 +10,7 @@ import Dashboard from './Components/Dashboard';
 import loginService from './Services/LoginService';
 import consentStatusService from './Services/ConsentStatusService';
 import ConsentRequests from './Components/ConsentRequests';
+import AdmissionPage from './Components/AdmissionPage';
 function App() {
   const [user, setUser] = useState(null)
   const [consentRequests, setConsentRequests] = useState([])
@@ -60,8 +61,8 @@ function App() {
           {
             (user !== null) && <Route path="/" element={<Dashboard user={user} />} />
           }
-          <Route path="/consentRequests" element={<ConsentRequests consentRequests={consentRequests} />} />
-          {/* <Route path="/healthData" element={<RecordsPage healthRecords={healthRecords}/>} /> */}
+          <Route path="/consentRequests" element={<ConsentRequests consentRequests={consentRequests} user={user}/>} />
+          <Route path="/admission" element={<AdmissionPage/>} />
           <Route path="/about" element={<AboutPage />} />
         </Routes>
         <Footer />

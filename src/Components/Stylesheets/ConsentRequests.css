@@ -41,3 +41,21 @@ td{
     text-align: center;
     justify-content: center;
 }
+.InputButtonLink{
+    background: none!important;
+    border: black;
+    border-style: inset;
+    border-width: 2px;
+    padding: 0!important;
+    /*optional*/
+    font-family: arial, sans-serif;
+    /*input has OS specific font-family*/
+    color: green;
+    font-weight: bold;
+    cursor: pointer;
+}
+.HealthDataStatistics{
+    background-color: #dbdedf4e;
+    /* margin: 12px 15px;
+    padding: 16px 12px; */
+}

@@ -1,16 +1,15 @@
 import axios from "axios";
 import configURL from "../Configurations/configURL"
-const {loginURL} = configURL
 const token = 'your_jwt_token';
-const login = async (loginCredentials) => {
-    const response = await axios.post(loginURL, loginCredentials, {
+const {addEHRURL} = configURL
+
+const addRecord = async (healthRecord) => {
+    const response = await axios.post(addEHRURL, healthRecord, {
         headers: {
         'Authorization': `Bearer ${token}`
         }
        })
     return response.data
-
-    //return {userId:1, userName:'venky', doctor:{doctorId:1}}
 }
-const exportObject = { login }
+const exportObject = { addRecord }
 export default exportObject
