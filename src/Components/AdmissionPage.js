@@ -1,6 +1,5 @@
 import './Stylesheets/AdmissionPage.css'
 import React, { useState } from 'react'
-import EpisodeDataList from '../EpisodeDataList.json'
 import AdmissionVisits from './AdmissionVisits';
 import LocalEHRDetailsListService from '../Services/LocalEHRDetailsListService'
 import AddEpisodeService from '../Services/AddEpisodeService'
@@ -9,13 +8,15 @@ const AdmissionPage = () => {
     const [expandedIndex, setExpandedIndex] = useState(-1);
     const [patient_id, setPatient_id] = useState('');
     const [episodeType, setEpisodeType] = useState('');
-    console.log("Episode Data", EpisodeDataList)
+    const [EpisodeDataList, setEpisodeDataList] = useState([]);
     const handleExpand = (index) => {
         setExpandedIndex(index);
     };
     const fetchHandler = async (requestParams) => {
         try {
-            const responseObject = await LocalEHRDetailsListService.getEHRDetailsList(requestParams)
+            const responseObject = await LocalEHRDetailsListService.getEHRDetailsList(requestParams);
+            setEpisodeDataList(responseObject);
+            console.log(responseObject)
         }
         catch (exception) {
             alert("Unable to Fetch Details, Try Again Later...")
@@ -27,14 +28,16 @@ const AdmissionPage = () => {
             patientId:parseInt(patient_id)
         }
         fetchHandler(requestParams)
-        setPatient_id('')
+        // setPatient_id('')
     }
     const addHandler = async (requestParams) => {
         try {
             const responseObject = await AddEpisodeService.addEpisode(requestParams)
+            alert("Episode Added Successfully! "+responseObject)
+            console.log(responseObject)
         }
         catch (exception) {
-            alert("Unable to Add Details, Try Again Later...")
+            alert("Unable to Add Details, Try Again Later..." + exception)
         }
     }
     const addRequestHandler = (event) => {

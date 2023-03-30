@@ -8,6 +8,7 @@ const AdmissionVisits = ({ EpisodeData, index, patient_id }) => {
     const addHandler = async (requestParams) => {
         try {
             const responseObject = await AddVisitService.addVisit(requestParams)
+            alert("Visit Added Successfully! "+responseObject)
         }
         catch (exception) {
             alert("Unable to Add Details, Try Again Later...")

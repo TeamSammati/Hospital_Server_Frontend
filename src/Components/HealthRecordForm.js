@@ -44,8 +44,8 @@ const HealthRecordForm = (user) => {
   const healthRecordHandler = async (healthRecord) => {
     try {
       const response = await healthRecordService.addRecord(healthRecord)
-      if (response) {
-        alert("Record Added Successfully! Record Id. : ", response)
+      if (response>0) {
+        alert("Record Added Successfully! Record Id. : " + response)
         window.location.reload(true)
 
       }

@@ -1,10 +1,11 @@
 import axios from "axios";
 import configURL from "../Configurations/configURL"
-const token = 'your_jwt_token';
-const {addEHRURL} = configURL
+const {addVisitURL} = configURL
 
 const addVisit = async (requestParams) => {
-    const response = await axios.post(addEHRURL, requestParams, {
+    let token = window.localStorage.getItem('BearerToken')
+    token=token.substring(1,token.length-1);
+    const response = await axios.post(`${addVisitURL}?patientId=${requestParams.patientId}&episodeId=${requestParams.episodeId}&doctorId=${requestParams.doctorId}`, {
         headers: {
         'Authorization': `Bearer ${token}`
         }
