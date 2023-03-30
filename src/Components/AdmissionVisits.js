@@ -1,8 +1,28 @@
 import React, { useState } from 'react'
 import './Stylesheets/AdmissionVisits.css'
-const AdmissionVisits = ({ EpisodeData, index }) => {
+import AddVisitService from '../Services/AddVisitService'
+const AdmissionVisits = ({ EpisodeData, index, patient_id }) => {
     const [addVisit, setAddVisit] = useState(false);
+    const [doctorId, setDoctorId] = useState('');
     console.log("EpisodeData (", index, ") :", EpisodeData.visits)
+    const addHandler = async (requestParams) => {
+        try {
+            const responseObject = await AddVisitService.addVisit(requestParams)
+        }
+        catch (exception) {
+            alert("Unable to Add Details, Try Again Later...")
+        }
+    }
+    const addRequestHandler = (event) => {
+        event.preventDefault(true)
+        const requestParams = {
+            patientId : parseInt(patient_id),
+            episodeId : parseInt(EpisodeData.episodeId),
+            doctorId : doctorId
+        }
+        addHandler(requestParams)
+        setDoctorId('')
+    }
     return (
         <div className='AdmissionVisitsContainer'>
             <div className='AddVisitSection'>
@@ -20,9 +40,9 @@ const AdmissionVisits = ({ EpisodeData, index }) => {
                 <div className='AddVisitDivision AddVisitForm'>
                     {
                         (addVisit) &&
-                        <form>
+                        <form onSubmit={addRequestHandler}>
                             <label className='InputLabel'>Enter Doctor Id.</label>
-                            <input type="text" className='InputText' required />
+                            <input type="text" className='InputText' value={doctorId} onChange={(e)=>{setDoctorId(e.target.value)}} required />
                             <button type='submit' className='InputButton'>Add Visit</button>
                         </form>
                     }
