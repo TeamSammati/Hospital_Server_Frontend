@@ -2,22 +2,59 @@ import './Stylesheets/AdmissionPage.css'
 import React, { useState } from 'react'
 import EpisodeDataList from '../EpisodeDataList.json'
 import AdmissionVisits from './AdmissionVisits';
+import LocalEHRDetailsListService from '../Services/LocalEHRDetailsListService'
+import AddEpisodeService from '../Services/AddEpisodeService'
 const AdmissionPage = () => {
     const [addEpisode, setAddEpisode] = useState(false);
     const [expandedIndex, setExpandedIndex] = useState(-1);
+    const [patient_id, setPatient_id] = useState('');
+    const [episodeType, setEpisodeType] = useState('');
     console.log("Episode Data", EpisodeDataList)
     const handleExpand = (index) => {
         setExpandedIndex(index);
     };
+    const fetchHandler = async (requestParams) => {
+        try {
+            const responseObject = await LocalEHRDetailsListService.getEHRDetailsList(requestParams)
+        }
+        catch (exception) {
+            alert("Unable to Fetch Details, Try Again Later...")
+        }
+    }
+    const fetchRequestHandler = (event) => {
+        event.preventDefault(true)
+        const requestParams = {
+            patientId:parseInt(patient_id)
+        }
+        fetchHandler(requestParams)
+        setPatient_id('')
+    }
+    const addHandler = async (requestParams) => {
+        try {
+            const responseObject = await AddEpisodeService.addEpisode(requestParams)
+        }
+        catch (exception) {
+            alert("Unable to Add Details, Try Again Later...")
+        }
+    }
+    const addRequestHandler = (event) => {
+        event.preventDefault(true)
+        const requestParams = {
+            patientId:parseInt(patient_id),
+            episodetype: episodeType
+        }
+        addHandler(requestParams)
+        setEpisodeType('')
+    }
     return (
         <div className='AdmissionPage'>
             <div className='AdmissionPageTitle'>Admissions</div>
             <div className='AdmissionPageContent'>
                 <div className='MainContainer'>
                     <div className='PatientDivision'>
-                        <form>
+                        <form onSubmit={fetchRequestHandler}>
                             <label className='InputLabel'>Enter Patient Id.</label>
-                            <input type="text" className='InputText' required />
+                            <input type="text" className='InputText' value={patient_id} onChange={(e)=>{setPatient_id(e.target.value)}} required />
                             <button type='submit' className='InputButton'>Fetch</button>
                         </form>
                     </div>
@@ -43,9 +80,9 @@ const AdmissionPage = () => {
                                 <div className='AddEpisodeDivision AddEpisodeForm'>
                                     {
                                         (addEpisode) &&
-                                        <form>
+                                        <form onSubmit={addRequestHandler}>
                                             <label className='InputLabel'>Enter Consultation (Episode) Type</label>
-                                            <input type="text" className='InputText' required />
+                                            <input type="text" value={episodeType} onChange={(e)=>{setEpisodeType(e.target.value)}} className='InputText' required />
                                             <button type='submit' className='InputButton'>Add</button>
                                         </form>
                                     }
@@ -74,7 +111,7 @@ const AdmissionPage = () => {
                                     </div>
                                     {
                                         (index === expandedIndex) &&
-                                        <AdmissionVisits EpisodeData={EpisodeData} index={index} />
+                                        <AdmissionVisits EpisodeData={EpisodeData} index={index} patient_id={patient_id}/>
                                     }
                                     <br />
                                 </div>

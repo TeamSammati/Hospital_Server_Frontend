@@ -11,19 +11,20 @@ const NewConsentRequest = ({user, setNewConsentRequest}) => {
             alert("Request Sent Successfully!", response)
             setNewConsentRequest(false);
           }
-          window.location.reload(true)
+          //window.location.reload(true)
 
         }
         catch (exception) {
           alert("Request Unable to Send, Please try later...")
-         window.location.reload(true)
+         //window.location.reload(true)
         }
       }
     const requestHandler = (event) => {
         event.preventDefault(true)
         const requestParams = {
-            patientId:patient_id, doctorId: user.doctorId, hospitalId: 5
+            patientId:parseInt(patient_id), doctorId: user.doctorId, hospitalId: 5, purpose: purpose
         }
+        console.log(requestParams)
         newConsentRequestHandler(requestParams)
         setPatient_id('')
         setPurpose('')

@@ -16,7 +16,7 @@ const LoginPage = ({ loginHandler }) => {
     //   return
     // }
     const loginCredentials = {
-      doctorId: userName, password: password
+      email: userName, password: password
     }
 
     loginHandler(loginCredentials)
