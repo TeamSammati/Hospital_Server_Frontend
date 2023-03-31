@@ -5,7 +5,7 @@ const {addVisitURL} = configURL
 const addVisit = async (requestParams) => {
     let token = window.localStorage.getItem('BearerToken')
     token=token.substring(1,token.length-1);
-    const response = await axios.post(`${addVisitURL}?patientId=${requestParams.patientId}&episodeId=${requestParams.episodeId}&doctorId=${requestParams.doctorId}`, {
+    const response = await axios.post(`${addVisitURL}?patientId=${requestParams.patientId}&episodeId=${requestParams.episodeId}&doctorId=${requestParams.doctorId}`, null, {
         headers: {
         'Authorization': `Bearer ${token}`
         }
