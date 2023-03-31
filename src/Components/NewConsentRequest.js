@@ -11,12 +11,12 @@ const NewConsentRequest = ({user, setNewConsentRequest}) => {
             alert("Request Sent Successfully!", response)
             setNewConsentRequest(false);
           }
-          //window.location.reload(true)
+          window.location.reload(true)
 
         }
         catch (exception) {
           alert("Request Unable to Send, Please try later...")
-         //window.location.reload(true)
+         window.location.reload(true)
         }
       }
     const requestHandler = (event) => {

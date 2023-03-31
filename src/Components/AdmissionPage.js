@@ -1,6 +1,5 @@
 import './Stylesheets/AdmissionPage.css'
 import React, { useState } from 'react'
-import EpisodeDataList from '../EpisodeDataList.json'
 import AdmissionVisits from './AdmissionVisits';
 import LocalEHRDetailsListService from '../Services/LocalEHRDetailsListService'
 import AddEpisodeService from '../Services/AddEpisodeService'
@@ -9,32 +8,46 @@ const AdmissionPage = () => {
     const [expandedIndex, setExpandedIndex] = useState(-1);
     const [patient_id, setPatient_id] = useState('');
     const [episodeType, setEpisodeType] = useState('');
-    console.log("Episode Data", EpisodeDataList)
+    const [EpisodeDataList, setEpisodeDataList] = useState([]);
+    const [fetchPatient, setFetchPatient] = useState(true);
     const handleExpand = (index) => {
         setExpandedIndex(index);
     };
     const fetchHandler = async (requestParams) => {
         try {
-            const responseObject = await LocalEHRDetailsListService.getEHRDetailsList(requestParams)
+            const responseObject = await LocalEHRDetailsListService.getEHRDetailsList(requestParams);
+            setEpisodeDataList(responseObject);
+            console.log(responseObject)
         }
         catch (exception) {
             alert("Unable to Fetch Details, Try Again Later...")
         }
     }
     const fetchRequestHandler = (event) => {
+        if(patient_id === '' || patient_id <= 0){
+            alert("Enter Valid Patient Id.");
+            return;
+        }
         event.preventDefault(true)
+        setFetchPatient(false)
         const requestParams = {
             patientId:parseInt(patient_id)
         }
         fetchHandler(requestParams)
-        setPatient_id('')
+        // setPatient_id('')
     }
     const addHandler = async (requestParams) => {
         try {
             const responseObject = await AddEpisodeService.addEpisode(requestParams)
+            alert("Episode Added Successfully! "+responseObject)
+            console.log(responseObject)
+            const reqParams = {
+                patientId:parseInt(patient_id)
+            }
+            fetchHandler(reqParams)
         }
         catch (exception) {
-            alert("Unable to Add Details, Try Again Later...")
+            alert("Unable to Add Details, Try Again Later..." + exception)
         }
     }
     const addRequestHandler = (event) => {
@@ -54,8 +67,9 @@ const AdmissionPage = () => {
                     <div className='PatientDivision'>
                         <form onSubmit={fetchRequestHandler}>
                             <label className='InputLabel'>Enter Patient Id.</label>
-                            <input type="text" className='InputText' value={patient_id} onChange={(e)=>{setPatient_id(e.target.value)}} required />
+                            <input type="text" className='InputText' value={patient_id} disabled={!fetchPatient} onChange={(e)=>{setPatient_id(e.target.value)}} required />
                             <button type='submit' className='InputButton'>Fetch</button>
+                            {(!fetchPatient) && <button className='InputButton' onClick={()=>{setFetchPatient(true); setPatient_id('');}}>Reset</button>}
                         </form>
                     </div>
                     {
@@ -111,7 +125,7 @@ const AdmissionPage = () => {
                                     </div>
                                     {
                                         (index === expandedIndex) &&
-                                        <AdmissionVisits EpisodeData={EpisodeData} index={index} patient_id={patient_id}/>
+                                        <AdmissionVisits EpisodeData={EpisodeData} index={index} patient_id={patient_id} fetchHandler={fetchHandler}/>
                                     }
                                     <br />
                                 </div>

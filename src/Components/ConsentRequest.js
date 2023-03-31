@@ -2,13 +2,14 @@ import React from 'react'
 import './Stylesheets/ConsentRequest.css'
 
 const ConsentRequest = ({ consentRequest, index }) => {
-    //console.log("consentRequest : ",consentRequest)
+    console.log("consentRequest : ",consentRequest)
     return (
         <tr>
             <td>{index + 1}</td>
-            <td>{consentRequest[0]} </td>
-            <td>{consentRequest[1]}</td>
-            <td>{consentRequest[2]}</td>
+            <td>{consentRequest.patientId} </td>
+            <td>{consentRequest.consentRequestId}</td>
+            <td>{consentRequest.purpose}</td>
+            <td>{consentRequest.consentRequestStatus}</td>
         </tr>
     )
 }

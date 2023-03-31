@@ -4,9 +4,9 @@ const {consentRequestURL} = configURL
 
 const consentRequest = async (requestParams) => {
 
-    const token = window.localStorage.getItem('BearerToken')
-    console.log(token)
-    // const response = await axios.post(`${consentRequestURL}?patientId=${cr_response.patientId}&doctorId=${cr_response.doctorId}&hospitalId=${cr_response.hospitalId}`)
+    let token = window.localStorage.getItem('BearerToken')
+    token=token.substring(1,token.length-1);
+    console.log(requestParams);
     const response = await axios.post(consentRequestURL,requestParams, {
         headers: {
         'Authorization': `Bearer ${token}`

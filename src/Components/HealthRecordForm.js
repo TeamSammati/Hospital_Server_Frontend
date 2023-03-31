@@ -12,7 +12,7 @@ const HealthRecordForm = (user) => {
   const [patientId, setPatientId] = useState('');
   const [problem, setProblem] = useState('');
   const [treatment, setTreatment] = useState('');
-
+  //console.log(user.user.user.doctorId)
 
   const handleNewMedicineChange = (event) => {
     setNewMedicine(event.target.value);
@@ -44,8 +44,8 @@ const HealthRecordForm = (user) => {
   const healthRecordHandler = async (healthRecord) => {
     try {
       const response = await healthRecordService.addRecord(healthRecord)
-      if (response) {
-        alert("Record Added Successfully! Record Id. : ", response)
+      if (response>0) {
+        alert("Record Added Successfully! Record Id. : " + response)
         window.location.reload(true)
 
       }
@@ -66,7 +66,7 @@ const HealthRecordForm = (user) => {
     const healthRecord = {
       "recordDto": {
         "patientId": parseInt(patientId),
-        "doctorId": parseInt(1),
+        "doctorId": parseInt(user.user.user.doctorId),
         "visitId": parseInt(visitId),
         "problem": problem,
         "treatment": treatment
