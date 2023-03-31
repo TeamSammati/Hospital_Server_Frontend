@@ -4,6 +4,7 @@ import ConsentRequest from './ConsentRequest'
 import NewConsentRequest from './NewConsentRequest';
 const ConsentRequests = ({ consentRequests, user }) => {
   const [newConsentRequest, setNewConsentRequest] = useState(false);
+  //console.log(consentRequests);
   return (
     <div className='ConsentRequestsPage'>
       <div className='ConsentRequestTitle'>
@@ -37,11 +38,12 @@ const ConsentRequests = ({ consentRequests, user }) => {
                   <th scope="col">Sl. No.</th>
                   <th scope="col">Patient Id.</th>
                   <th scope="col">Consent Request Id.</th>
+                  <th scope="col">Purpose</th>
                   <th scope="col">Status</th>
                 </tr>
               </thead>
               <tbody>
-                {consentRequests.map((consentRequest, index) => (
+                {consentRequests.sort((a, b) => a.consentRequestId < b.consentRequestId ? 1 : -1).map((consentRequest, index) => (
                   <ConsentRequest
                     consentRequest={consentRequest}
                     index={index}
