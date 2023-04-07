@@ -171,11 +171,11 @@ const AdmissionPage = () => {
                                 (regSec1) &&
                                 <div className='QRSection'>
                                     <div className='PageHeader'>
-                                        <span style={{ float: "left" }}><TbCircle1Filled className='Icons' size={30} /> <br /> <span>QR Scan</span> </span>
-                                        <TbArrowBigRightLinesFilled style={{ float: "left" }} className='Icons' size={30} />
-                                        <span style={{ float: "left" }}><TbCircleNumber2 className='Icons' size={30} /> <br /> <span>OTP Validation</span></span>
-                                        <TbArrowBigRightLines style={{ float: "left" }} className='Icons' size={30} />
-                                        <span style={{ float: "left" }}><TbCircleNumber3 className='Icons' size={30} /> <br /> <span>Save Details</span></span>
+                                        <div className='fr1'><span style={{ float: "left" }}><TbCircle1Filled className='Icons' size={30} /> <br /> <span>QR Scan</span> </span></div>
+                                        <TbArrowBigRightLinesFilled style={{ float: "left" }} className='Icons Arrow1' size={30} />
+                                        <div className='fr2'><span style={{ float: "left" }}><TbCircleNumber2 className='Icons' size={30} /> <br /> <span>OTP Validation</span></span></div>
+                                        <TbArrowBigRightLines style={{ float: "left" }} className='Icons Arrow2' size={30} />
+                                        <div className='fr3'><span style={{ float: "left" }}><TbCircleNumber3 className='Icons' size={30} /> <br /> <span>Save Details</span></span></div>
                                     </div>
                                     <div className='PageBody'>Start QR Scanner by Clicking on 'Scan'</div>
                                     <div ScanSection>
@@ -202,11 +202,11 @@ const AdmissionPage = () => {
                                 (regSec2) &&
                                 <div className='ValidateSection'>
                                     <div className='PageHeader'>
-                                        <span style={{ float: "left" }}><TbCircleNumber1 className='Icons' size={30} /> <br /> <span>QR Scan</span> </span>
+                                        <div className='fr1'><span style={{ float: "left" }}><TbCircleNumber1 className='Icons' size={30} /> <br /> <span>QR Scan</span> </span></div>
+                                        <TbArrowBigRightLinesFilled style={{ float: "left" }} className='Icons Arrow1' size={30} />
+                                        <div className='fr2'><span style={{ float: "left" }}><TbCircle2Filled className='Icons' size={30} /> <br /> <span>OTP Validation</span></span></div>
                                         <TbArrowBigRightLinesFilled style={{ float: "left" }} className='Icons' size={30} />
-                                        <span style={{ float: "left" }}><TbCircle2Filled className='Icons' size={30} /> <br /> <span>OTP Validation</span></span>
-                                        <TbArrowBigRightLinesFilled style={{ float: "left" }} className='Icons' size={30} />
-                                        <span style={{ float: "left" }}><TbCircleNumber3 className='Icons' size={30} /> <br /> <span>Save Details</span></span>
+                                        <div className='fr3'><span style={{ float: "left" }}><TbCircleNumber3 className='Icons Arrow2' size={30} /> <br /> <span>Save Details</span></span></div>
                                     </div>
                                     <div className='PageBody'>Enter High Security PIN. Sent to the Patient's Registered Mobile No.</div>
                                     <label className='InputLabel'>Enter OTP </label>
@@ -218,11 +218,11 @@ const AdmissionPage = () => {
                                 (regSec3) &&
                                 <div className='DetailsSection'>
                                     <div className='PageHeader'>
-                                        <span style={{ float: "left" }}><TbCircleNumber1 className='Icons' size={30} /> <br /> <span>QR Scan</span> </span>
+                                        <div className='fr1'><span style={{ float: "left" }}><TbCircleNumber1 className='Icons' size={30} /> <br /> <span>QR Scan</span> </span></div>
                                         <TbArrowBigRightLinesFilled style={{ float: "left" }} className='Icons' size={30} />
-                                        <span style={{ float: "left" }}><TbCircleNumber2 className='Icons' size={30} /> <br /> <span>OTP Validation</span></span>
+                                        <div className='fr2'> <span style={{ float: "left" }}><TbCircleNumber2 className='Icons' size={30} /> <br /> <span>OTP Validation</span></span></div>
                                         <TbArrowBigRightLinesFilled style={{ float: "left" }} className='Icons' size={30} />
-                                        <span style={{ float: "left" }}><TbCircle3Filled className='Icons' size={30} /> <br /> <span>Save Details</span></span>
+                                        <div className='fr3'><span style={{ float: "left" }}><TbCircle3Filled className='Icons' size={30} /> <br /> <span>Save Details</span></span></div>
                                     </div>
                                     {
                                         (patient !== null) ?
@@ -251,7 +251,7 @@ const AdmissionPage = () => {
                             }
                         </div>
                     </div>
-                    <button className='InputLink' onClick={() => {setRegSec1(true); setRegSec2(false); setRegSec3(false);setRegister(false); }}>&lt; Go to AdmissionPage</button>
+                    <button className='InputLink' onClick={() => { setRegSec1(true); setRegSec2(false); setRegSec3(false); setRegister(false); }}>&lt; Go to AdmissionPage</button>
                 </div>
             }
             {
