@@ -22,7 +22,7 @@ const NewConsentRequest = ({user, setNewConsentRequest}) => {
     const requestHandler = (event) => {
         event.preventDefault(true)
         const requestParams = {
-            patientId:parseInt(patient_id), doctorId: user.doctorId, hospitalId: 5, purpose: purpose
+            patientId:parseInt(patient_id), doctorId: user.doctorId, hospitalId: 2, purpose: purpose
         }
         console.log(requestParams)
         newConsentRequestHandler(requestParams)

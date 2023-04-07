@@ -1,13 +1,18 @@
 // All the Service URL's are to be included here...
+let ipAddress = "172.16.144.47"
+let portNumber = 6969;
 const configURL = {
-    loginURL : `http://172.16.131.147:6969/api/auth/authenticate`,
-    registerURL : `http://172.16.131.147:6969/save`,
-    consentRequestURL : `http://172.16.131.147:6969/consent_request`,
-    consentStatusURL : `http://172.16.131.147:6969/get_status_all`,
-    addEHRURL : `http://172.16.131.147:6969/addrecord`,
-    getEHRDetailsListURL : `http://172.16.131.147:6969/get-episodes`,
-    addEpisodeURL : `http://172.16.131.147:6969/addepisode`,
-    addVisitURL : `http://172.16.131.147:6969/addvisit`
+    loginURL : `http://${ipAddress}:${portNumber}/api/auth/authenticate`,
+    registerURL : `http://${ipAddress}:${portNumber}/save`,
+    consentRequestURL : `http://${ipAddress}:${portNumber}/consent_request`,
+    consentStatusURL : `http://${ipAddress}:${portNumber}/get_status_all`,
+    addEHRURL : `http://${ipAddress}:${portNumber}/addrecord`,
+    getEHRDetailsListURL : `http://${ipAddress}:${portNumber}/get-episodes`,
+    addEpisodeURL : `http://${ipAddress}:${portNumber}/addepisode`,
+    addVisitURL : `http://${ipAddress}:${portNumber}/addvisit`,
+    sendOtpPatientURL : `http://${ipAddress}:${portNumber}/api/auth/send-otp-patient`,
+    getPatientDataURL : `http://${ipAddress}:${portNumber}/api/auth/get-patient-data`,
+    registerNewPatientURL : `http://${ipAddress}:${portNumber}/api/auth/register_new_patient`
 
 };
 export default configURL;

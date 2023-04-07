@@ -1,0 +1,13 @@
+.QRScanner{
+    text-align: center;
+    border: black;
+    border-radius: 2px;
+    border-color: black;
+    border-style: double;
+    border-width: 2px;
+    width: 326px;
+    height: 246px;
+    margin: auto;
+    padding-top: 5px;
+    background-color: skyblue;
+}
