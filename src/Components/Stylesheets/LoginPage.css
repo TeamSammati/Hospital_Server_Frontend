@@ -15,9 +15,9 @@
 }
 .LoginContainer::before {    
     content: "";
-    background-image: url("../../Images/kauvery-hospitals-logo.webp");
+    background-image: url("../../Images/KauveryImage.png");
     /* background-image: radial-gradient(red 2%, yellow 10%, green); */
-    background-position: center;
+    /* background-position: center; */
     /* Center the image */
     background-repeat: no-repeat;
     /* Do not repeat the image */

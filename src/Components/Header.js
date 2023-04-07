@@ -28,7 +28,7 @@ const Header = ({ user, setUser }) => {
                 </button>
             }
 
-            <div className='headerTitle'><span><img src={logo} alt="logo" width={35} height={35} /></span> Sammati - Consent Management System</div>
+            <div className='headerTitle'><span><img src={logo} alt="logo" width={35} height={35} /></span> Kauvery Hospitals - Powered By, Sammati</div>
         </div>
     )
 }
