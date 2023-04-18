@@ -8,6 +8,8 @@ import { TbCircleNumber1, TbCircle1Filled, TbCircleNumber2, TbCircleNumber3, TbC
 // import patient from '../image.json';
 import QRScanner from './QRScanner';
 import swal from 'sweetalert';
+import configURL from "../Configurations/configURL"
+const {hospitalId} = configURL
 const AdmissionPage = () => {
     const [addEpisode, setAddEpisode] = useState(false);
     const [expandedIndex, setExpandedIndex] = useState(-1);
@@ -93,7 +95,7 @@ const AdmissionPage = () => {
         event.preventDefault(true);
         const requestParams = {
             patientId: parseInt(id),
-            hospitalId: 2,
+            hospitalId: hospitalId,
             otp: regOtp
         }
         ValidateRequestHandler(requestParams);
