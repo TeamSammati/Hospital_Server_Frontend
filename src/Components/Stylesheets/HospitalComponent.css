@@ -1,0 +1,11 @@
+.HospitalPageContainer{
+    background-color: #d7ecf6b9;
+    padding: 12px 24px;
+    margin: 10px 0px;
+}
+.RecordsTitle{
+    color: darkblue;
+    position: relative;
+    top: -6px;
+    margin-left: 20px;
+}

@@ -5,9 +5,10 @@
 .DashboardContent{
     margin: 10px 15px;
 }
-.HealthDataStatistics, .ConsentsRequests{
-    background-color: #dbdedf4e;
-    margin: 12px 0;
+.HealthDataStatistics, .ConsentsRequests, .DashboardMain{
+    background-color: #fff;
+    box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.322);
+    margin: 12px 10px;
     padding: 16px 12px;
 }
 .btnPage2Go, .btnPage2Back{

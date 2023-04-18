@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import './Stylesheets/HealthRecordForm.css'
 import healthRecordService from '../Services/HealthRecordService'
-const HealthRecordForm = (user) => {
+import swal from "sweetalert";
+const HealthRecordForm = ({ user }) => {
   const [medicines, setMedicines] = useState([]);
   const [dosages, setDosages] = useState([]);
   const [dosageTimings, setDosageTimings] = useState([]);
@@ -12,7 +13,7 @@ const HealthRecordForm = (user) => {
   const [patientId, setPatientId] = useState('');
   const [problem, setProblem] = useState('');
   const [treatment, setTreatment] = useState('');
-  //console.log(user.user.user.doctorId)
+  //console.log(user)
 
   const handleNewMedicineChange = (event) => {
     setNewMedicine(event.target.value);
@@ -34,7 +35,11 @@ const HealthRecordForm = (user) => {
       setNewDosageTimings("");
     }
     else {
-      alert("Enter All Fields To Add this to Prescription!");
+      swal({
+        text: "Enter All Fields To Add this to Prescription!",
+        icon: " warning",
+        button: "Okay",
+    });
       setNewMedicine("");
       setNewDosage("");
       setNewDosageTimings("");
@@ -44,14 +49,32 @@ const HealthRecordForm = (user) => {
   const healthRecordHandler = async (healthRecord) => {
     try {
       const response = await healthRecordService.addRecord(healthRecord)
-      if (response>0) {
-        alert("Record Added Successfully! Record Id. : " + response)
-        window.location.reload(true)
-
+      if (response > 0) {
+        swal({
+          title: "Operation Successfull",
+          text: "Record Added Successfully! Record Id. : " + response,
+          icon: "success",
+          button: "Okay",
+        });
+        window.location.reload(true);
+      }
+      else {
+        swal({
+          title: "Operation Failed",
+          text: "You don't have authority for this Visit Id. Contact Admission Branch ",
+          icon: "error",
+          button: "Okay",
+        });
+        window.location.reload(true);
       }
     }
     catch (exception) {
-      alert("Failed to add record, try again !!!", exception)
+      swal({
+        title: "Operation Failed",
+        text: "Failed to add record, try again !!!"+exception,
+        icon: "error",
+        button: "Okay",
+      });
     }
   }
   const handleSubmit = (event) => {
@@ -66,14 +89,14 @@ const HealthRecordForm = (user) => {
     const healthRecord = {
       "recordDto": {
         "patientId": parseInt(patientId),
-        "doctorId": parseInt(user.user.user.doctorId),
+        "doctorId": parseInt(user.doctorId),
         "visitId": parseInt(visitId),
         "problem": problem,
         "treatment": treatment
       },
       "prescriptionDtos": prescriptions
     };
-    console.log(healthRecord); 
+    //console.log(healthRecord); 
     healthRecordHandler(healthRecord);
     setMedicines([]);
     setDosages([]);

@@ -1,7 +1,7 @@
 import React from "react";
 import QrReader from 'react-qr-scanner'
 import "./Stylesheets/QRScanner.css";
-
+import swal from 'sweetalert';
 export default function QRScanner({setId}) {
   let handleScan = data => {
     if (data) {
@@ -10,7 +10,12 @@ export default function QRScanner({setId}) {
   };
 
   let handleError = err => {
-    alert(err);
+    swal({
+      title: "Operation Failed",
+      text: err,
+      icon: "error",
+      button: "Okay",
+  });
   };
   const previewStyle = {
     height: 240,

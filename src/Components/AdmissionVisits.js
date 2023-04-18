@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './Stylesheets/AdmissionVisits.css'
 import AddVisitService from '../Services/AddVisitService'
+import swal from 'sweetalert'
 const AdmissionVisits = ({ EpisodeData, index, patient_id, fetchHandler }) => {
     const [addVisit, setAddVisit] = useState(false);
     const [doctorId, setDoctorId] = useState('');
@@ -8,11 +9,21 @@ const AdmissionVisits = ({ EpisodeData, index, patient_id, fetchHandler }) => {
     const addHandler = async (requestParams) => {
         try {
             const responseObject = await AddVisitService.addVisit(requestParams)
-            alert("Visit Added Successfully! " + responseObject);
+            swal({
+                title: "Operation Successfull",
+                text: "Visit Added Successfully! " + responseObject,
+                icon: "success",
+                button: "Okay",
+              });
             window.location.reload(true);
         }
         catch (exception) {
-            alert("Unable to Add Details, Try Again Later...")
+            swal({
+                title: "Operation Failed",
+                text: "Unable to Add Details, Try Again Later...",
+                icon: "error",
+                button: "Okay",
+              });
         }
     }
     const addRequestHandler = (event) => {
@@ -76,7 +87,7 @@ const AdmissionVisits = ({ EpisodeData, index, patient_id, fetchHandler }) => {
                                         <tr>
                                             <td>{ind + 1}</td>
                                             <td>{visitRecord.visitId} </td>
-                                            <td>{visitRecord.visit_date.substring(0, 16)}</td>
+                                            <td>{visitRecord.visit_date.substring(0, 10)}</td>
                                             <td>{visitRecord.doctor.doctorId} - {visitRecord.doctor.firstName} {visitRecord.doctor.lastName}</td>
                                         </tr>
                                     )

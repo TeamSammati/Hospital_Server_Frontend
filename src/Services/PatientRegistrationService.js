@@ -7,7 +7,7 @@ const sendOtp = async (requestParams) => {
     let token = window.localStorage.getItem('BearerToken')
     token=token.substring(1,token.length-1);
     console.log(requestParams);
-    const response = await axios.post(`${sendOtpPatientURL}?patientId=${requestParams.patientId}`,null, {
+    const response = await axios.get(`${sendOtpPatientURL}?patientId=${requestParams.patientId}`, {
         headers: {
         'Authorization': `Bearer ${token}`
         }

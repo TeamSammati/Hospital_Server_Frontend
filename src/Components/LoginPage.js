@@ -47,7 +47,7 @@ const LoginPage = ({ loginHandler }) => {
                   required
                 />
                 <br />
-                <label for='login-userid' className='InputLabel'>Password</label>
+                <label for='login-password' className='InputLabel' style={{color:"black"}}>Password</label>
                 <input
                   type='password'
                   placeholder='Enter your Password ...'

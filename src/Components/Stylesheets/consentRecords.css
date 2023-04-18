@@ -1,0 +1,23 @@
+.RecordsPage{
+    min-height: 500px;
+}
+.RecordsPageTitle{
+    text-align: center;
+    color: green;
+    font-weight: bold;
+    margin: 10px;
+}
+.RecordsPageContainer{
+    margin: 10px;
+    padding: 12px 24px;
+    min-height: 500px;
+    /* background-color: aliceblue; */
+    border: 2px;
+    border-radius: 4px;
+    border-color: black;
+    border-width: 2px;
+    border-style: double;
+}
+.RecordsFilter{
+    color: darkblue;
+}

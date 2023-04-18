@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import './Stylesheets/ConsentRequests.css'
 import ConsentRequest from './ConsentRequest'
 import NewConsentRequest from './NewConsentRequest';
+import NewEmergencyConsentRequest from './NewEmergencyConsentRequest';
 const ConsentRequests = ({ consentRequests, user }) => {
   const [newConsentRequest, setNewConsentRequest] = useState(false);
+  const [newEmergencyConsentRequest, setNewEmergencyConsentRequest] = useState(false);
   //console.log(consentRequests);
   return (
     <div className='ConsentRequestsPage'>
@@ -20,6 +22,18 @@ const ConsentRequests = ({ consentRequests, user }) => {
         }
         {
           (newConsentRequest) && <NewConsentRequest user={user} setNewConsentRequest={setNewConsentRequest} />
+        }
+      </div>
+      <div className='HealthDataStatistics'>
+        New Emergency Consent Request
+        {
+          (!newEmergencyConsentRequest) && <button onClick={() => { setNewEmergencyConsentRequest(true) }} className="InputButtonLink">&nbsp;+&nbsp;</button>
+        }
+        {
+          (newEmergencyConsentRequest) && <button onClick={() => { setNewEmergencyConsentRequest(false) }} className="InputButtonLink">&nbsp;-&nbsp;</button>
+        }
+        {
+          (newEmergencyConsentRequest) && <NewEmergencyConsentRequest user={user} setNewEmergencyConsentRequest={setNewEmergencyConsentRequest}/>
         }
       </div>
       <div className='ConsentRequestContainer'>
