@@ -1,0 +1,13 @@
+.react-responsive-modal-modal {
+     min-width: 60vh;
+     min-height: 40vh;
+     top: 80px;
+     border-radius: 4px;
+     padding: 12px 24px !important;
+     
+}
+h5{
+    color: #e91e63;
+    text-align: center;
+    
+}

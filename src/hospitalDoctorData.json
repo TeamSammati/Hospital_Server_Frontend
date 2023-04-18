@@ -1,0 +1,70 @@
+[
+    {
+        "hospitalId": 1,
+        "doctors": [
+            [
+                1,
+                "Vanya Jain"
+            ],
+            [
+                2,
+                "Atmaram Kelkar"
+            ],
+            [
+                3,
+                "Jignesh Kacha"
+            ],
+            [
+                4,
+                "Rahul Divan"
+            ],
+            [
+                5,
+                "Ellie Revak"
+            ],
+            [
+                6,
+                "Sujatha Parimalan"
+            ],
+            [
+                7,
+                "Sammati Server"
+            ]
+        ],
+        "hospitalName": "Apollo"
+    },
+    {
+        "hospitalId": 2,
+        "doctors": [
+            [
+                1,
+                "Aadesh Murty"
+            ],
+            [
+                2,
+                "Richa Kunda"
+            ],
+            [
+                3,
+                "Aarushi Sami"
+            ],
+            [
+                4,
+                "Amit Chowdhury"
+            ],
+            [
+                5,
+                "Hetvi Shah"
+            ],
+            [
+                11,
+                "Test Test"
+            ],
+            [
+                13,
+                "Sammati Server"
+            ]
+        ],
+        "hospitalName": "Kauvery"
+    }
+]

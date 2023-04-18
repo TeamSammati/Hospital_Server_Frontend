@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <div className='footerPage'>
       <div className="footer-container">
-            <div className="row">
+            <div className="footer-row">
                 <div className="footer-col">
                     <h4>Contact Info</h4>
                     <h5>Sammati CMS Office, <br/> National Health Authority, New Delhi - 110001 <br/>Email: <a href="mailto:sammati@nha.gov.in">sammati@nha.gov.in</a><br/> Toll Free No. 1800-11-4477</h5>

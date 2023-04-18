@@ -1,11 +1,12 @@
-import axios from "axios";
+import axios from 'axios'
 import configURL from "../Configurations/configURL"
-const {addEHRURL, fetchPatientRecordsURL} = configURL
 
-const addRecord = async (healthRecord) => {
+const {delegateURL, getAllHospitalDoctorURL} = configURL
+
+const getHospitalDoctors = async () => {
     let token = window.localStorage.getItem('BearerToken')
     token=token.substring(1,token.length-1);
-    const response = await axios.post(addEHRURL, healthRecord, {
+    const response = await axios.get(getAllHospitalDoctorURL, {
         headers: {
         'Authorization': `Bearer ${token}`
         }
@@ -13,15 +14,16 @@ const addRecord = async (healthRecord) => {
     return response.data
 }
 
-const fetchRecords = async (reqParams) => {
+const delegate = async (reqParams) => {
     let token = window.localStorage.getItem('BearerToken')
     token=token.substring(1,token.length-1);
-    const response = await axios.get(`${fetchPatientRecordsURL}?consentId=${reqParams.consentId}&doctorId=${reqParams.doctorId}&hospitalId=${reqParams.hospitalId}`, {
+    const response = await axios.post(delegateURL, reqParams,{
         headers: {
         'Authorization': `Bearer ${token}`
         }
        })
     return response.data
 }
-const exportObject = { addRecord, fetchRecords}
+const exportObject = {delegate, getHospitalDoctors}
+
 export default exportObject

@@ -7,6 +7,7 @@ import PatientRegistrationService from '../Services/PatientRegistrationService'
 import { TbCircleNumber1, TbCircle1Filled, TbCircleNumber2, TbCircleNumber3, TbCircle2Filled, TbCircle3Filled, TbArrowBigRightLinesFilled, TbArrowBigRightLines } from 'react-icons/tb';
 // import patient from '../image.json';
 import QRScanner from './QRScanner';
+import swal from 'sweetalert';
 const AdmissionPage = () => {
     const [addEpisode, setAddEpisode] = useState(false);
     const [expandedIndex, setExpandedIndex] = useState(-1);
@@ -32,12 +33,23 @@ const AdmissionPage = () => {
                 setRegSec1(false); setRegSec2(true); setRegSec3(false);
             }
             else {
-                alert("Invalid Patient QR or No Regd. Mobile Number Exist for the Patient at Sammati");
+                swal({
+                    title: "Operation Failed",
+                    text: "Invalid Patient QR or No Regd. Mobile Number Exist for the Patient at Sammati",
+                    icon: "error",
+                    button: "Okay",
+                });
+
             }
             // console.log(responseObject)
         }
         catch (exception) {
-            alert("Unable to Send Request, Try Again Later...")
+            swal({
+                title: "Operation Failed",
+                text: "Unable to Send Request, Try Again Later...",
+                icon: "error",
+                button: "Okay",
+            });
         }
     }
     const handleProceed = (event) => {
@@ -57,13 +69,24 @@ const AdmissionPage = () => {
                 setRegSec1(false); setRegSec2(false); setRegSec3(true);
             }
             else {
-                alert("Invalid OTP, Try Again!");
+                swal({
+                    title: "Operation Failed",
+                    text: "Invalid OTP, Try Again!",
+                    icon: "error",
+                    button: "Okay",
+                });
+                
                 setRegOtp('');
             }
             // console.log(responseObject)
         }
         catch (exception) {
-            alert("Unable to Send Request, Try Again Later...")
+            swal({
+                title: "Operation Failed",
+                text: "Unable to Send Request, Try Again Later...",
+                icon: "error",
+                button: "Okay",
+            });
         }
     }
     const handleValidate = (event) => {
@@ -80,16 +103,31 @@ const AdmissionPage = () => {
             const responseObject = await PatientRegistrationService.registerPatient(requestParams)
             if (responseObject) {
                 setPatient(responseObject);
-                alert("Patient Registration Successfull!!!");
+                swal({
+                    title: "Operation Successfull",
+                    text: "Patient Registration Successfull!!!",
+                    icon: "success",
+                    button: "Okay",
+                  });
                 setRegSec1(true); setRegSec2(false); setRegSec3(false);
             }
             else {
-                alert("Patient Registration Failed...");
+                swal({
+                    title: "Operation Failed",
+                    text: "Patient Registration Failed...",
+                    icon: "error",
+                    button: "Okay",
+                });
             }
             console.log(responseObject)
         }
         catch (exception) {
-            alert("Unable to Send Request, Try Again Later...")
+            swal({
+                title: "Operation Failed",
+                text: "Unable to Send Request, Try Again Later...",
+                icon: "error",
+                button: "Okay",
+            });
         }
     }
     const handleRegister = (event) => {
@@ -104,12 +142,21 @@ const AdmissionPage = () => {
             console.log(responseObject)
         }
         catch (exception) {
-            alert("Unable to Fetch Details, Try Again Later...")
+            swal({
+                title: "Operation Failed",
+                text: "Unable to Fetch Details, Try Again Later...",
+                icon: "error",
+                button: "Okay",
+            });
         }
     }
     const fetchRequestHandler = (event) => {
         if (patient_id === '' || patient_id <= 0) {
-            alert("Enter Valid Patient Id.");
+            swal({
+                text: "Enter Valid Patient Id.",
+                icon: "warning",
+                button: "Okay",
+            });
             return;
         }
         event.preventDefault(true)
@@ -123,7 +170,12 @@ const AdmissionPage = () => {
     const addHandler = async (requestParams) => {
         try {
             const responseObject = await AddEpisodeService.addEpisode(requestParams)
-            alert("Episode Added Successfully! " + responseObject)
+            swal({
+                title: "Operation Successfull",
+                text: "Episode Added Successfully! " + responseObject,
+                icon: "success",
+                button: "Okay",
+              });
             console.log(responseObject)
             const reqParams = {
                 patientId: parseInt(patient_id)
@@ -131,7 +183,12 @@ const AdmissionPage = () => {
             fetchHandler(reqParams)
         }
         catch (exception) {
-            alert("Unable to Add Details, Try Again Later..." + exception)
+            swal({
+                title: "Operation Failed",
+                text: "Unable to Add Details, Try Again Later..." + exception,
+                icon: "error",
+                button: "Okay",
+            });
         }
     }
     const addRequestHandler = (event) => {

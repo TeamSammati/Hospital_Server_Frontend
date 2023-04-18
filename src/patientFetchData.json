@@ -1,0 +1,170 @@
+[
+    {
+        "data": [
+            {
+                "recordId": 1,
+                "patientId": 1,
+                "doctor": {
+                    "doctorId": 1,
+                    "firstName": "Aadesh",
+                    "lastName": "Murty",
+                    "mobileNumber": "6127958288",
+                    "registrationNumber": 552921,
+                    "registrationDate": "2023-04-06T18:30:00.000+00:00",
+                    "designation": "Surgeon",
+                    "password": "$2a$10$IPjjxlUXxhhY71yj9bV7ru5fZRR6phw.V.u/4mjNawPKKdaXreCGi",
+                    "email": "Aadesh.Murty@Kauvery.in",
+                    "role": "DOCTOR",
+                    "enabled": true,
+                    "username": "Aadesh.Murty@Kauvery.in",
+                    "authorities": [
+                        {
+                            "authority": "DOCTOR"
+                        }
+                    ],
+                    "accountNonExpired": true,
+                    "accountNonLocked": true,
+                    "credentialsNonExpired": true
+                },
+                "problem": "viral fever",
+                "treatment": "take rest for 2 days",
+                "prescriptions": [
+                    {
+                        "prescriptionId": 1,
+                        "medicine": "Tylenol",
+                        "dosage": 2,
+                        "dosage_timing": "0-1-1"
+                    }
+                ]
+            },
+            {
+                "recordId": 2,
+                "patientId": 1,
+                "doctor": {
+                    "doctorId": 3,
+                    "firstName": "Aarushi",
+                    "lastName": "Sami",
+                    "mobileNumber": "6318897477",
+                    "registrationNumber": 532409,
+                    "registrationDate": "2023-04-06T18:30:00.000+00:00",
+                    "designation": "Pediatrician",
+                    "password": "$2a$10$/rT35Q0J/d4CiPraTBQTPuLhqbGGyCmAnXPxP9lvosuI.RLxqARHu",
+                    "email": "Aarushi.Sami@Kauvery.in",
+                    "role": "DOCTOR",
+                    "enabled": true,
+                    "username": "Aarushi.Sami@Kauvery.in",
+                    "authorities": [
+                        {
+                            "authority": "DOCTOR"
+                        }
+                    ],
+                    "accountNonExpired": true,
+                    "accountNonLocked": true,
+                    "credentialsNonExpired": true
+                },
+                "problem": "Fever",
+                "treatment": "Gen. Med.",
+                "prescriptions": [
+                    {
+                        "prescriptionId": 2,
+                        "medicine": "Paracetamol-600",
+                        "dosage": 1,
+                        "dosage_timing": "M-E"
+                    },
+                    {
+                        "prescriptionId": 3,
+                        "medicine": "Disprin-325",
+                        "dosage": 1,
+                        "dosage_timing": "M-A"
+                    }
+                ]
+            }
+        ],
+        "hospitalId": 1,
+        "hospitalName": "Apollo"
+    },
+    {
+        "data": [
+            {
+                "recordId": 1,
+                "patientId": 1,
+                "doctor": {
+                    "doctorId": 1,
+                    "firstName": "Aadesh",
+                    "lastName": "Murty",
+                    "mobileNumber": "6127958288",
+                    "registrationNumber": 552921,
+                    "registrationDate": "2023-04-06T18:30:00.000+00:00",
+                    "designation": "Surgeon",
+                    "password": "$2a$10$IPjjxlUXxhhY71yj9bV7ru5fZRR6phw.V.u/4mjNawPKKdaXreCGi",
+                    "email": "Aadesh.Murty@Kauvery.in",
+                    "role": "DOCTOR",
+                    "enabled": true,
+                    "username": "Aadesh.Murty@Kauvery.in",
+                    "authorities": [
+                        {
+                            "authority": "DOCTOR"
+                        }
+                    ],
+                    "accountNonExpired": true,
+                    "accountNonLocked": true,
+                    "credentialsNonExpired": true
+                },
+                "problem": "viral fever",
+                "treatment": "take rest for 2 days",
+                "prescriptions": [
+                    {
+                        "prescriptionId": 1,
+                        "medicine": "Tylenol",
+                        "dosage": 2,
+                        "dosage_timing": "0-1-1"
+                    }
+                ]
+            },
+            {
+                "recordId": 2,
+                "patientId": 1,
+                "doctor": {
+                    "doctorId": 3,
+                    "firstName": "Aarushi",
+                    "lastName": "Sami",
+                    "mobileNumber": "6318897477",
+                    "registrationNumber": 532409,
+                    "registrationDate": "2023-04-06T18:30:00.000+00:00",
+                    "designation": "Pediatrician",
+                    "password": "$2a$10$/rT35Q0J/d4CiPraTBQTPuLhqbGGyCmAnXPxP9lvosuI.RLxqARHu",
+                    "email": "Aarushi.Sami@Kauvery.in",
+                    "role": "DOCTOR",
+                    "enabled": true,
+                    "username": "Aarushi.Sami@Kauvery.in",
+                    "authorities": [
+                        {
+                            "authority": "DOCTOR"
+                        }
+                    ],
+                    "accountNonExpired": true,
+                    "accountNonLocked": true,
+                    "credentialsNonExpired": true
+                },
+                "problem": "Fever",
+                "treatment": "Gen. Med.",
+                "prescriptions": [
+                    {
+                        "prescriptionId": 2,
+                        "medicine": "Paracetamol-600",
+                        "dosage": 1,
+                        "dosage_timing": "M-E"
+                    },
+                    {
+                        "prescriptionId": 3,
+                        "medicine": "Disprin-325",
+                        "dosage": 1,
+                        "dosage_timing": "M-A"
+                    }
+                ]
+            }
+        ],
+        "hospitalId": 2,
+        "hospitalName": "Kauvery"
+    }
+]
