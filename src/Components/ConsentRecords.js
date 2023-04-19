@@ -3,6 +3,8 @@ import React, {useState, useEffect} from 'react'
 import HospitalComponent from './HospitalComponent';
 import './Stylesheets/consentRecords.css'
 import HealthRecordService from '../Services/HealthRecordService';
+import configURL from '../Configurations/configURL';
+const {hospitalId} = configURL;
 const ConsentRecords = ({consentId, user}) => {
     const [hospitalSearchValue, setHospitalSearchValue] = useState(parseInt(0))
     
@@ -12,7 +14,7 @@ const ConsentRecords = ({consentId, user}) => {
             const reqParams = {
                 consentId: consentId,
                 doctorId: user.doctorId,
-                hospitalId: 2
+                hospitalId: hospitalId
             }
             const data = await HealthRecordService.fetchRecords(reqParams)
             setPatientFetchData(data);

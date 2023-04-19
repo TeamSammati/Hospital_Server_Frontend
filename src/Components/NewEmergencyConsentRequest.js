@@ -3,6 +3,8 @@ import './Stylesheets/NewConsentRequest.css'
 import ConsentRequestService from '../Services/ConsentRequestService'
 import {BiRightArrow} from 'react-icons/bi';
 import swal from 'sweetalert';
+import configURL from '../Configurations/configURL';
+const {hospitalId} = configURL;
 const NewEmergencyConsentRequest = ({user, setNewEmergencyConsentRequest}) => {
     const [patient_id, setPatient_id] = useState('')
     const [purpose, setPurpose] = useState('')
@@ -38,7 +40,7 @@ const NewEmergencyConsentRequest = ({user, setNewEmergencyConsentRequest}) => {
         const requestParams = {
             doctorId: user.doctorId,
             doctorName: user.firstName+" "+user.lastName,
-            hospitalId: 2, 
+            hospitalId: hospitalId, 
             patientId:parseInt(patient_id),
             duration: duration, 
             purpose: purpose

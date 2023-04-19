@@ -23,6 +23,6 @@ const configURL = {
     getEmergencyConsentRequestsURL : `http://${ipAddress}:${portNumber}/get-pending-emergency-cr`,
     emergencyConsentResponseURL : `http://${ipAddress}:${portNumber}/accept-emergency-consent`,
     fetchPatientRecordsURL : `http://${ipAddress}:${portNumber}/get-patient-records`,
-     
+    hospitalId: 2
 };
 export default configURL;
