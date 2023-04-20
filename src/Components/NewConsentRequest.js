@@ -11,16 +11,40 @@ const NewConsentRequest = ({user, setNewConsentRequest}) => {
     const newConsentRequestHandler = async (requestParams) => {
         try {
           const response = await ConsentRequestService.consentRequest(requestParams)
+          if(response === "PatientNotExist"){
+            swal({
+                title: "Operation Failed",
+                text: "Patient Not Registered. Cannot Request without being registered in Hospital",
+                icon: "error",
+                button: "Okay",
+            }).then(()=>{
+                setPatient_id('');
+                setPurpose('');
+            })
+            return;
+          }
           if (response) {
             swal({
                 title: "Operation Successfull",
                 text: "Request Sent Successfully!"+response,
                 icon: "success",
                 button: "Okay",
-            });
-            setNewConsentRequest(false);
+            }).then(()=>{
+                setNewConsentRequest(false);
+                window.location.reload(true);
+            })
           }
-          window.location.reload(true)
+          else{
+            swal({
+                title: "Operation Failed",
+                text: "Request Unable to Send, Please try later...",
+                icon: "error",
+                button: "Okay",
+            }).then(()=>{
+                window.location.reload(true)
+            });
+          }
+          
         }
         catch (exception) {
             swal({
@@ -28,8 +52,10 @@ const NewConsentRequest = ({user, setNewConsentRequest}) => {
                 text: "Request Unable to Send, Please try later...",
                 icon: "error",
                 button: "Okay",
-            });
-         window.location.reload(true)
+            }).then(()=>{
+                window.location.reload(true)
+            })
+         
         }
       }
     const requestHandler = (event) => {

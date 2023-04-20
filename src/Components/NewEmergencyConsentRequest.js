@@ -12,6 +12,18 @@ const NewEmergencyConsentRequest = ({user, setNewEmergencyConsentRequest}) => {
     const newConsentRequestHandler = async (requestParams) => {
         try {
           const response = await ConsentRequestService.emergencyConsentRequest(requestParams)
+          if(response === "PatientNotExist"){
+            swal({
+                title: "Operation Failed",
+                text: "Patient Not Registered. Cannot Request without being registered in Hospital",
+                icon: "error",
+                button: "Okay",
+            }).then(()=>{
+                setPatient_id('');
+                setPurpose('');
+            })
+            return;
+          }
           if (response) {
             console.log("Response",response);
             swal({
@@ -19,10 +31,13 @@ const NewEmergencyConsentRequest = ({user, setNewEmergencyConsentRequest}) => {
                 text: "Request Sent Successfully! Request Id. "+response.emergencyConsentRequestId,
                 icon: "success",
                 button: "Okay",
-            });
-            setNewEmergencyConsentRequest(false);
+            }).then(()=>{
+                setNewEmergencyConsentRequest(false);
+                window.location.reload(true)
+            })
+            
           }
-          window.location.reload(true)
+          
 
         }
         catch (exception) {
@@ -31,8 +46,10 @@ const NewEmergencyConsentRequest = ({user, setNewEmergencyConsentRequest}) => {
                 text: "Request Unable to Send, Please try later...",
                 icon: "error",
                 button: "Okay",
-            });
-         window.location.reload(true)
+            }).then(()=>{
+                window.location.reload(true)
+            })
+         
         }
       }
     const requestHandler = (event) => {
@@ -72,7 +89,7 @@ const NewEmergencyConsentRequest = ({user, setNewEmergencyConsentRequest}) => {
                             <input
                                 type='number'
                                 min={1}
-                                max={10}
+                                max={1}
                                 className='InputText'
                                 value={duration}
                                 onChange={event => setDuration(event.target.value)}

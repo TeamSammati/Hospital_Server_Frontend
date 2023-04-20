@@ -10,7 +10,7 @@ const PendingEmergencyRequest = ({ emergencyConsentRequestId, index, duration, p
         try {
             const response = await ConsentRequestService.emergencyConsentResponse(reqParams)
             console.log("Response Reject",response);
-            if (response) {
+            if (response === -200) {
                 swal({
                     title: "Operation Successfull",
                     text: "REJECTED",
@@ -47,7 +47,7 @@ const PendingEmergencyRequest = ({ emergencyConsentRequestId, index, duration, p
             if (response) {
                 swal({
                     title: "Operation Successfull",
-                    text: "APPROVED",
+                    text: "APPROVED! consent Id: "+response,
                     icon: "success",
                     button: "Okay",
                 })

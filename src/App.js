@@ -23,7 +23,7 @@ function App() {
       const userObject = await loginService.login(loginCredentials)
       if (userObject) {
         setUser(userObject)
-        window.localStorage.setItem('sessionUser', JSON.stringify(userObject.doctorId))
+        window.localStorage.setItem('sessionUser', JSON.stringify({doctorId: userObject.doctorId, role: userObject.role}))
       }
       else {
         swal({
@@ -59,11 +59,13 @@ function App() {
 
   useEffect(() => {
     const sessionUser = window.localStorage.getItem('sessionUser')
+    console.log(JSON.parse(sessionUser));
     if (sessionUser) {
-      const doctorId = JSON.parse(sessionUser);
+      const doctorId = JSON.parse(sessionUser).doctorId;
+      console.log(doctorId);
       async function getUser() {
         const response = await loginService.getUser(doctorId)
-        //console.log("Get User: ",response);
+        console.log("Get User: ",response);
         setUser(response);
       }
       getUser();

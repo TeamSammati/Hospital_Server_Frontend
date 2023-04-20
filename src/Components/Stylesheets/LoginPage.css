@@ -48,7 +48,7 @@
     content: '';
     position: absolute;
     left: auto;
-    background-color: #e91e63;
+    background-color: rgb(244,212,111);
     height: 2px;
     box-sizing: border-box;
     width: 100px;

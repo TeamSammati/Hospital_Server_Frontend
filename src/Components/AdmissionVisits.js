@@ -9,13 +9,35 @@ const AdmissionVisits = ({ EpisodeData, index, patient_id, fetchHandler }) => {
     const addHandler = async (requestParams) => {
         try {
             const responseObject = await AddVisitService.addVisit(requestParams)
-            swal({
-                title: "Operation Successfull",
-                text: "Visit Added Successfully! " + responseObject,
-                icon: "success",
-                button: "Okay",
-              });
-            window.location.reload(true);
+            if(responseObject === "DoctorNotExist"){
+                swal({
+                    title: "Operation Failed",
+                    text: "Doctor Id. Is Invalid or Not Exist ",
+                    icon: "error",
+                    button: "Okay",
+                }).then(()=>{
+                    return;
+                })
+                return;
+            }
+            if(responseObject)
+                swal({
+                    title: "Operation Successfull",
+                    text: "Visit Added Successfully! " + responseObject,
+                    icon: "success",
+                    button: "Okay",
+                }).then(()=>{
+                    window.location.reload(true);
+                });
+            else{
+                swal({
+                    title: "Operation Failed",
+                    text: "Unable to Add Details, Try Again Later...",
+                    icon: "error",
+                    button: "Okay",
+                  }); 
+            }
+            
         }
         catch (exception) {
             swal({

@@ -31,6 +31,15 @@ const AdmissionPage = () => {
     const ProceedRequestHandler = async (requestParams) => {
         try {
             const responseObject = await PatientRegistrationService.sendOtp(requestParams)
+            if(responseObject === "Exist"){
+                swal({
+                    title: "Operation Failed",
+                    text: "Patient Already Registered in this Hospital",
+                    icon: "error",
+                    button: "Okay",
+                }); 
+                return;
+            }
             if (responseObject) {
                 setRegSec1(false); setRegSec2(true); setRegSec3(false);
             }
@@ -110,8 +119,10 @@ const AdmissionPage = () => {
                     text: "Patient Registration Successfull!!!",
                     icon: "success",
                     button: "Okay",
-                  });
-                setRegSec1(true); setRegSec2(false); setRegSec3(false);
+                  }).then(()=>{
+                    setRegSec1(true); setRegSec2(false); setRegSec3(false);
+                  })
+                
             }
             else {
                 swal({
@@ -140,6 +151,16 @@ const AdmissionPage = () => {
     const fetchHandler = async (requestParams) => {
         try {
             const responseObject = await LocalEHRDetailsListService.getEHRDetailsList(requestParams);
+            console.log("responseObject",responseObject);
+            if(responseObject === "NotExist"){
+                swal({
+                    title: "Operation Failed",
+                    text: "Patient Not Registered, Register First!",
+                    icon: "error",
+                    button: "Okay",
+                });
+                return;
+            }
             setEpisodeDataList(responseObject);
             console.log(responseObject)
         }
@@ -287,7 +308,11 @@ const AdmissionPage = () => {
                                         (patient !== null) ?
                                             <div>
                                                 <div className='PageBody'>Fetched Global Patient Details</div>
-                                                <div className='imgComponent'><ImageComponent base64String={patient.passPhoto} /></div>
+                                                {
+                                                    (patient && patient.passPhoto) &&
+                                                    <div className='imgComponent'><ImageComponent base64String={patient.passPhoto} /></div>
+                                                }
+                                                
                                                 <div className='form_content'>
                                                     <label className='InputLabel'>Unique Patient Id.</label>
                                                     <input type='text' className='InputText' value={patient.patientId} disabled></input>
