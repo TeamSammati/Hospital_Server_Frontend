@@ -1,9 +1,10 @@
 .headerPage{
-    background-color: #ededed;
+    background-color: rgb(230,97,147);
     font-family: Roboto;
     font-size: large;
     font-weight: 200;
     padding: 20px 10px;
+    color: #fff;
 }
 .headerTitle{
     text-decoration: solid;

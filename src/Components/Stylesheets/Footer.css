@@ -2,7 +2,7 @@
     /* max-width: 1170px; */
     padding: 0px 24px;
     margin: auto;
-    background-color: #24262b;
+    background-color: rgb(230,97,147);
 }
 .footer-col ul{
     list-style: none;
@@ -12,21 +12,21 @@
     flex-wrap: wrap;
 }
 .footerPage{
-    background-color: #24262b;
+    background-color: rgb(230,97,147);
     padding: 10px 0 10px 0;
 }
 .copyright p{
     color: #fff;
-    border-top: #e91e63 solid 1px;
+    border-top: rgb(244,212,111) solid 1px;
     padding-top: 5px;
     text-align: center;
-    background-color: #24262b;
+    background-color: rgb(230,97,147);
 }
 
 .footer-col{
     width: 20%;
     padding: 0 15px 10px 15px;
-    background-color: #24262b;
+    background-color: rgb(230,97,147);
 }
 .footer-col h4{
     font-size: 18px;
@@ -34,14 +34,14 @@
     text-transform: capitalize;
     margin-bottom: 35px;
     position: relative;
-    background-color: #24262b;
+    background-color: rgb(230,97,147);
 }
 .footer-col h4::before{
     content: '';
     position: absolute;
     left: 0;
     bottom: -10px;
-    background-color: #e91e63;
+    background-color: rgb(244,212,111);
     height: 2px;
     box-sizing: border-box;
     width: 50px;
@@ -51,19 +51,19 @@
     color:#fff;
 }
 .footer-col h5 a{
-    color: #bbb;
+    color: #fff;
     text-decoration: none;
 }
 
 .footer-col ul li a{
     font-size: 16px;
     text-transform: capitalize;
-    color: #bbb;
+    color: #fff;
     text-decoration: none;
     font-weight: 300;
     display: block;
     transition: all 0.3s ease;
-    background-color: #24262b;
+    background-color: rgb(230,97,147);
 }
 .footer-col ul li a:hover{
     color: #fff;

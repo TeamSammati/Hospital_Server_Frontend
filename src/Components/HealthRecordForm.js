@@ -39,33 +39,48 @@ const HealthRecordForm = ({ user }) => {
         text: "Enter All Fields To Add this to Prescription!",
         icon: " warning",
         button: "Okay",
-    });
+    }).then(()=>{
       setNewMedicine("");
       setNewDosage("");
       setNewDosageTimings("");
+    })
+      
     }
   };
   //Backend Service Call...
   const healthRecordHandler = async (healthRecord) => {
     try {
       const response = await healthRecordService.addRecord(healthRecord)
+      if(response === "PatientIdNotMatched"){
+        swal({
+          title: "Operation Failed",
+          text: "Details Didn't Match !!!,  Contact Admission Branch ",
+          icon: "error",
+          button: "Okay",
+        });
+        return;
+      }
       if (response > 0) {
         swal({
           title: "Operation Successfull",
           text: "Record Added Successfully! Record Id. : " + response,
           icon: "success",
           button: "Okay",
-        });
-        window.location.reload(true);
+        }).then(()=>{
+          window.location.reload(true);
+        })
+        
       }
       else {
         swal({
           title: "Operation Failed",
-          text: "You don't have authority for this Visit Id. Contact Admission Branch ",
+          text: "Details Didn't Match !!!,  Contact Admission Branch ",
           icon: "error",
           button: "Okay",
-        });
-        window.location.reload(true);
+        }).then(()=>{
+          window.location.reload(true);
+        })
+        
       }
     }
     catch (exception) {

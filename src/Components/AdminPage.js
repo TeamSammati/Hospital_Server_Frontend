@@ -30,7 +30,7 @@ const AdminPage = ({ user }) => { // { pendingRequests}
         {
           (pendingRequests.length === 0) &&
           <div className='ActiveConsentsMessage'>
-            No Active Consents
+            No Emergency Requests
           </div>
         }
         {
